@@ -7,3 +7,9 @@
 
 # Intermediate figure files
 analysis/figures/
+
+# Token
+create_token.R
+
+## Output files
+docs
