@@ -7,6 +7,8 @@ output:
 
 Analysis of the following Twitter hashtags:
 
-```{r list, echo = FALSE, results = "asis"}
+* [CDSB2020](CDSB2020.html) - CDSB 2020 workshop (2020-08-03 - 2020-08-07)
+
+```{r list, echo = FALSE, results = "asis", eval = FALSE}
 cat(clamour::clamour_list())
 ```

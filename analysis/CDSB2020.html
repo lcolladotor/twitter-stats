@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>CDSB2020</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lcolladotor's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Hashtags
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="CDSB2020.html">CDSB2020</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lcolladotor/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">CDSB2020</h1>
+<h3 class="subtitle">CDSB 2020 workshop</h3>
+<h4 class="date">2020-08-08 22:28:08</h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:left;">
+Value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+hashtag
+</td>
+<td style="text-align:left;">
+#CDSB2020
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+start_day
+</td>
+<td style="text-align:left;">
+2020-08-03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+end_day
+</td>
+<td style="text-align:left;">
+2020-08-07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+timezone
+</td>
+<td style="text-align:left;">
+America/New_York
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+theme
+</td>
+<td style="text-align:left;">
+theme_light
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+accent
+</td>
+<td style="text-align:left;">
+#0092ac
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+accent2
+</td>
+<td style="text-align:left;">
+#87b13f
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kcore
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+topics_k
+</td>
+<td style="text-align:left;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bigram_filter
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fixed
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+seed
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the #CDSB2020 hashtag for the <a href="https://comunidadbioinfo.github.io/post/cdsb2020-building-workflows-with-rstudio-and-scrnaseq-with-bioconductor/#.XyWzfShKguU" title="CDSB 2020">CDSB 2020 workshop</a>, 3-7 August 2020 online (originally planned in Cuernavaca, Morelos, Mexico).</p>
+</div>
+<div id="timeline" class="section level1">
+<h1><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/CDSB2020/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2">
+<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2020-08-03 - 2020-08-07 in the America/New_York timezone.</p>
+<p><img src="figures/CDSB2020/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1">
+<h1><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3>Overall</h3>
+<p><img src="figures/CDSB2020/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered">
+<h3>Original</h3>
+<p><img src="figures/CDSB2020/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered">
+<h3>Retweets</h3>
+<p><img src="figures/CDSB2020/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2">
+<h2><span class="header-section-number">3.2</span> Retweet proportion</h2>
+<p><img src="figures/CDSB2020/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2">
+<h2><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
+<p><img src="figures/CDSB2020/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Overall</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Original</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-1" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-orig-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5-1" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-orig-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-2" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-retweets-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5-2" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/CDSB2020/tweets-top-users-retweets-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1">
+<h1><span class="header-section-number">4</span> Sources</h1>
+<p><img src="figures/CDSB2020/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="networks" class="section level1">
+<h1><span class="header-section-number">5</span> Networks</h1>
+<div id="replies" class="section level2">
+<h2><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/CDSB2020/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2">
+<h2><span class="header-section-number">5.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/CDSB2020/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1">
+<h1><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/CDSB2020/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/CDSB2020/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Join me tomorrow to learn about “Promoting the Next Wave of <a href="mailto:R/@Bioconductor" class="email">R/@Bioconductor</a> Developers in Latin America Starting in Mexico” 🇲🇽 at 1pm EST w/ Margaret Taub <span class="citation">@RLadiesBmore</span> &amp;amp; Randi García <span class="citation">@randiLgarcia</span></p>
+<p><a href="https://t.co/tFV5oyXjun" class="uri">https://t.co/tFV5oyXjun</a></p>
+<p><a href="https://t.co/W7E1PkEsLv" class="uri">https://t.co/W7E1PkEsLv</a></p>
+#JSM2020 #CDSB2020 <span class="citation">@CDSBMexico</span> <a href="https://t.co/baSzDCKi8T" class="uri">https://t.co/baSzDCKi8T</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+<p>Ready for day #2. Building workflows with <span class="citation">@rstudio</span> and #Bioconductor. Yesterday was lit !! Buckle up everyone for another day of #DataScience</p>
+<p>#CDSB2020</p>
+<span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@Alabasti</span> <a href="https://t.co/xUlIPQt6Vy" class="uri">https://t.co/xUlIPQt6Vy</a>
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> <span class="citation">@AnaBetty2304</span> <span class="citation">@RLadies_Qro</span> <span class="citation">@markrobinsonca</span> <span class="citation">@yalbi_ibm</span> <span class="citation">@RespiraINER</span> <span class="citation">@lcgunam</span> <span class="citation">@ccg_unam</span> <span class="citation">@rdv_chio</span> <span class="citation">@M2RUseR</span> <span class="citation">@Bioconductor</span> <span class="citation">@LeviWaldron1</span> <span class="citation">@BarjonCar</span> <span class="citation">@EmilianoSotel10</span> <span class="citation">@josschavezf1</span> <span class="citation">@RLadiesCuerna</span> <span class="citation">@VjimenezJacinto</span> <span class="citation">@ibt_unam</span> <span class="citation">@rstudio</span> <span class="citation">@areyesq</span> <span class="citation">@wolfgangkhuber</span> <span class="citation">@rafalab</span> <span class="citation">@Novartis</span> Leonardo Collado Torres <span class="citation">@fellgernon</span> is a co-founder &amp;amp; CDSB member + the 2nd main #CDSB2020 instructor</p>
+<p>He is a BioC vet, part of the <span class="citation">@Bioconductor</span> Community Advisory Board, has 3 #BioC2020 presentations tomorrow: 🚕, poster, BoF on CDSB</p>
+<p><a href="https://t.co/KBHzPrWXZ0" class="uri">https://t.co/KBHzPrWXZ0</a></p>
+#BioC2020 #rstats <a href="https://t.co/HQWffxbylX" class="uri">https://t.co/HQWffxbylX</a>
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 A collaborative, supportive and strong community. Thanks for your effort and dedication, you undoubtedly inspire many of us Mexican students to see beyond our limits. <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@TeresaOM</span> <span class="citation">@areyesq</span> <span class="citation">@AleMedinaRivera</span> <span class="citation">@M2RUseR</span> <a href="https://t.co/8KA5GupA76" class="uri">https://t.co/8KA5GupA76</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+<p>And the community keeps getting bigger, people from all over the country (and LA) taking part in #CDSB2020 !!!</p>
+<p>#DataScience</p>
+<span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@AleMedinaRivera</span> <span class="citation">@areyesq</span> <span class="citation">@TeresaOM</span>. <a href="https://t.co/Op6uQkPRCA" class="uri">https://t.co/Op6uQkPRCA</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> <span class="citation">@AnaBetty2304</span> <span class="citation">@RLadies_Qro</span> <span class="citation">@markrobinsonca</span> <span class="citation">@yalbi_ibm</span> <span class="citation">@RespiraINER</span> <span class="citation">@lcgunam</span> <span class="citation">@ccg_unam</span> Rocío Domínguez Vidaña <span class="citation">@rdv_chio</span> is a Cancer Bioinformatician &amp;amp; Data Scientist who started her career at <span class="citation">@lcgunam</span></p>
+<p><a href="https://t.co/xLVf6aFupq" class="uri">https://t.co/xLVf6aFupq</a></p>
+<p>Rocio will be a student at #CDSB2020 next week</p>
+#BioC2020 #rstats <a href="https://t.co/4kEQ5KVnwH" class="uri">https://t.co/4kEQ5KVnwH</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>I know #BioC2020 isn’t over yet + next week is #CDSB2020, but I just got my #JSM2020 welcome 📦 for the virtual conf world 🌎😎</p>
+<p>Join me at 8/4 1 pm EST for a talk about <span class="citation">@CDSBMexico</span>: #LatinxInSTEM at #rstats &amp;amp; <span class="citation">@Bioconductor</span>🇲🇽💪🏽</p>
+<p><a href="https://t.co/IM6pERkXDw" class="uri">https://t.co/IM6pERkXDw</a></p>
+#GonnaDieFromConfOverload <a href="https://t.co/vPRKC0TCpc" class="uri">https://t.co/vPRKC0TCpc</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+My RStudio cowsay::say(by = “yoda”) “Do you want to know the difference between a teacher and an apprentice? The teacher has failed more times than the beginner has tried” Yoda #rstats #CDSB2020 <a href="https://t.co/4FB8kNfWqL" class="uri">https://t.co/4FB8kNfWqL</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 Last Day!! 5 days of much learning, today ends with the topic: Clustering and detection of differentially expressed genes scRNAseq <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <a href="https://t.co/hwtFdd80Th" class="uri">https://t.co/hwtFdd80Th</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+Super pumped and ready for #CDSB2020 !! schedule looks great and loaded with amazing data scientists! <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <a href="https://t.co/G1OsriCY5F" class="uri">https://t.co/G1OsriCY5F</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3>Most retweeted</h3>
+<p><img src="figures/CDSB2020/most-retweeted-1.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/CDSB2020/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/CDSB2020/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Join me tomorrow to learn about “Promoting the Next Wave of <a href="mailto:R/@Bioconductor" class="email">R/@Bioconductor</a> Developers in Latin America Starting in Mexico” 🇲🇽 at 1pm EST w/ Margaret Taub <span class="citation">@RLadiesBmore</span> &amp;amp; Randi García <span class="citation">@randiLgarcia</span></p>
+<p><a href="https://t.co/tFV5oyXjun" class="uri">https://t.co/tFV5oyXjun</a></p>
+<p><a href="https://t.co/W7E1PkEsLv" class="uri">https://t.co/W7E1PkEsLv</a></p>
+#JSM2020 #CDSB2020 <span class="citation">@CDSBMexico</span> <a href="https://t.co/baSzDCKi8T" class="uri">https://t.co/baSzDCKi8T</a>
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 A collaborative, supportive and strong community. Thanks for your effort and dedication, you undoubtedly inspire many of us Mexican students to see beyond our limits. <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@TeresaOM</span> <span class="citation">@areyesq</span> <span class="citation">@AleMedinaRivera</span> <span class="citation">@M2RUseR</span> <a href="https://t.co/8KA5GupA76" class="uri">https://t.co/8KA5GupA76</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Trying to be at two places right now :P #JSM2020 #CDSB2020</p>
+I’m also supposed to prep my <span class="citation">@CDSBMexico</span> course slides 😅 for Wed-Fri <a href="https://t.co/FnAucssRTl" class="uri">https://t.co/FnAucssRTl</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+<p>Ready for day #2. Building workflows with <span class="citation">@rstudio</span> and #Bioconductor. Yesterday was lit !! Buckle up everyone for another day of #DataScience</p>
+<p>#CDSB2020</p>
+<span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@Alabasti</span> <a href="https://t.co/xUlIPQt6Vy" class="uri">https://t.co/xUlIPQt6Vy</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PardoBree
+</td>
+<td style="text-align:left;">
+<p>Day 2 of #CDSB2020 workshop from the comfort of my couch.</p>
+We just finished the ‘Using Git and GitHub’ session imparted by <span class="citation">@AleMedinaRivera</span>. ‘Writing and documenting functions’ session is about to start. Ready to keep learning!
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+josschavezf1
+</td>
+<td style="text-align:left;">
+Empezamos el cuarto día de #CDSB2020 💪 <span class="citation">@fellgernon</span> nos muestra cómo importar datos de scRNAseq y cuál es su estructura 👀 <a href="https://t.co/aKdLZvuume" class="uri">https://t.co/aKdLZvuume</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>I know #BioC2020 isn’t over yet + next week is #CDSB2020, but I just got my #JSM2020 welcome 📦 for the virtual conf world 🌎😎</p>
+<p>Join me at 8/4 1 pm EST for a talk about <span class="citation">@CDSBMexico</span>: #LatinxInSTEM at #rstats &amp;amp; <span class="citation">@Bioconductor</span>🇲🇽💪🏽</p>
+<p><a href="https://t.co/IM6pERkXDw" class="uri">https://t.co/IM6pERkXDw</a></p>
+#GonnaDieFromConfOverload <a href="https://t.co/vPRKC0TCpc" class="uri">https://t.co/vPRKC0TCpc</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+My RStudio cowsay::say(by = “yoda”) “Do you want to know the difference between a teacher and an apprentice? The teacher has failed more times than the beginner has tried” Yoda #rstats #CDSB2020 <a href="https://t.co/4FB8kNfWqL" class="uri">https://t.co/4FB8kNfWqL</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 Last Day!! 5 days of much learning, today ends with the topic: Clustering and detection of differentially expressed genes scRNAseq <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <a href="https://t.co/hwtFdd80Th" class="uri">https://t.co/hwtFdd80Th</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+luisterrazassal
+</td>
+<td style="text-align:left;">
+Muy buen curso!! Muchas gracias! El próximo en Mazatlán!! #CDSB2020 <span class="citation">@fellgernon</span> <span class="citation">@AleMedinaRivera</span>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3>Most likes</h3>
+<p><img src="figures/CDSB2020/most-favorited-1.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/CDSB2020/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/CDSB2020/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> Next <span class="citation">@AnaBetty2304</span> who co-founded <span class="citation">@RLadies_Qro</span> after #CDSB2018 &amp;amp; will be a teaching assitant for #CDSB2020 Ana Betty is a BioC veteran having attended &amp;amp; presented at #BioC2019 her work on #PulmonDB that is now published</p>
+<p><a href="https://t.co/0M8I0KHbpb" class="uri">https://t.co/0M8I0KHbpb</a></p>
+<p><a href="https://t.co/ta7lfC23U6" class="uri">https://t.co/ta7lfC23U6</a></p>
+#BioC2020 <a href="https://t.co/VGdi2kgA4m" class="uri">https://t.co/VGdi2kgA4m</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Join me tomorrow to learn about “Promoting the Next Wave of <a href="mailto:R/@Bioconductor" class="email">R/@Bioconductor</a> Developers in Latin America Starting in Mexico” 🇲🇽 at 1pm EST w/ Margaret Taub <span class="citation">@RLadiesBmore</span> &amp;amp; Randi García <span class="citation">@randiLgarcia</span></p>
+<p><a href="https://t.co/tFV5oyXjun" class="uri">https://t.co/tFV5oyXjun</a></p>
+<p><a href="https://t.co/W7E1PkEsLv" class="uri">https://t.co/W7E1PkEsLv</a></p>
+#JSM2020 #CDSB2020 <span class="citation">@CDSBMexico</span> <a href="https://t.co/baSzDCKi8T" class="uri">https://t.co/baSzDCKi8T</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3>Most quoted</h3>
+<p><img src="figures/CDSB2020/most-quoted-1.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills">
+<h1><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2>Proportion</h2>
+<p><img src="figures/CDSB2020/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2>Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Join me tomorrow to learn about “Promoting the Next Wave of <a href="mailto:R/@Bioconductor" class="email">R/@Bioconductor</a> Developers in Latin America Starting in Mexico” 🇲🇽 at 1pm EST w/ Margaret Taub <span class="citation">@RLadiesBmore</span> &amp;amp; Randi García <span class="citation">@randiLgarcia</span></p>
+<p><a href="https://t.co/tFV5oyXjun" class="uri">https://t.co/tFV5oyXjun</a></p>
+<p><a href="https://t.co/W7E1PkEsLv" class="uri">https://t.co/W7E1PkEsLv</a></p>
+#JSM2020 #CDSB2020 <span class="citation">@CDSBMexico</span> <a href="https://t.co/baSzDCKi8T" class="uri">https://t.co/baSzDCKi8T</a>
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 A collaborative, supportive and strong community. Thanks for your effort and dedication, you undoubtedly inspire many of us Mexican students to see beyond our limits. <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@TeresaOM</span> <span class="citation">@areyesq</span> <span class="citation">@AleMedinaRivera</span> <span class="citation">@M2RUseR</span> <a href="https://t.co/8KA5GupA76" class="uri">https://t.co/8KA5GupA76</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Trying to be at two places right now :P #JSM2020 #CDSB2020</p>
+I’m also supposed to prep my <span class="citation">@CDSBMexico</span> course slides 😅 for Wed-Fri <a href="https://t.co/FnAucssRTl" class="uri">https://t.co/FnAucssRTl</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+<p>Ready for day #2. Building workflows with <span class="citation">@rstudio</span> and #Bioconductor. Yesterday was lit !! Buckle up everyone for another day of #DataScience</p>
+<p>#CDSB2020</p>
+<span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@Alabasti</span> <a href="https://t.co/xUlIPQt6Vy" class="uri">https://t.co/xUlIPQt6Vy</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+josschavezf1
+</td>
+<td style="text-align:left;">
+Empezamos el cuarto día de #CDSB2020 💪 <span class="citation">@fellgernon</span> nos muestra cómo importar datos de scRNAseq y cuál es su estructura 👀 <a href="https://t.co/aKdLZvuume" class="uri">https://t.co/aKdLZvuume</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>I know #BioC2020 isn’t over yet + next week is #CDSB2020, but I just got my #JSM2020 welcome 📦 for the virtual conf world 🌎😎</p>
+<p>Join me at 8/4 1 pm EST for a talk about <span class="citation">@CDSBMexico</span>: #LatinxInSTEM at #rstats &amp;amp; <span class="citation">@Bioconductor</span>🇲🇽💪🏽</p>
+<p><a href="https://t.co/IM6pERkXDw" class="uri">https://t.co/IM6pERkXDw</a></p>
+#GonnaDieFromConfOverload <a href="https://t.co/vPRKC0TCpc" class="uri">https://t.co/vPRKC0TCpc</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+My RStudio cowsay::say(by = “yoda”) “Do you want to know the difference between a teacher and an apprentice? The teacher has failed more times than the beginner has tried” Yoda #rstats #CDSB2020 <a href="https://t.co/4FB8kNfWqL" class="uri">https://t.co/4FB8kNfWqL</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 Last Day!! 5 days of much learning, today ends with the topic: Clustering and detection of differentially expressed genes scRNAseq <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <a href="https://t.co/hwtFdd80Th" class="uri">https://t.co/hwtFdd80Th</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+Super pumped and ready for #CDSB2020 !! schedule looks great and loaded with amazing data scientists! <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <a href="https://t.co/G1OsriCY5F" class="uri">https://t.co/G1OsriCY5F</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> <span class="citation">@AnaBetty2304</span> <span class="citation">@RLadies_Qro</span> <span class="citation">@markrobinsonca</span> <span class="citation">@yalbi_ibm</span> <span class="citation">@RespiraINER</span> <span class="citation">@lcgunam</span> <span class="citation">@ccg_unam</span> Rocío Domínguez Vidaña <span class="citation">@rdv_chio</span> is a Cancer Bioinformatician &amp;amp; Data Scientist who started her career at <span class="citation">@lcgunam</span></p>
+<p><a href="https://t.co/xLVf6aFupq" class="uri">https://t.co/xLVf6aFupq</a></p>
+<p>Rocio will be a student at #CDSB2020 next week</p>
+#BioC2020 #rstats <a href="https://t.co/4kEQ5KVnwH" class="uri">https://t.co/4kEQ5KVnwH</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1></h1>
+<div id="most-liked-image" class="section level2">
+<h2><span class="header-section-number">7.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/Eeg6sgCXoAEtVHa.png" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1">
+<h1><span class="header-section-number">8</span> Tweet text</h1>
+<div id="word-cloud" class="section level2">
+<h2><span class="header-section-number">8.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/CDSB2020/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2">
+<h2><span class="header-section-number">8.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/CDSB2020/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">8.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/CDSB2020/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade">
+<h3><span class="header-section-number">8.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Join me tomorrow to learn about “Promoting the Next Wave of <a href="mailto:R/@Bioconductor" class="email">R/@Bioconductor</a> Developers in Latin America Starting in Mexico” 🇲🇽 at 1pm EST w/ Margaret Taub <span class="citation">@RLadiesBmore</span> &amp;amp; Randi García <span class="citation">@randiLgarcia</span></p>
+<p><a href="https://t.co/tFV5oyXjun" class="uri">https://t.co/tFV5oyXjun</a></p>
+<p><a href="https://t.co/W7E1PkEsLv" class="uri">https://t.co/W7E1PkEsLv</a></p>
+#JSM2020 #CDSB2020 <span class="citation">@CDSBMexico</span> <a href="https://t.co/baSzDCKi8T" class="uri">https://t.co/baSzDCKi8T</a>
+</td>
+<td style="text-align:right;">
+0.9960336
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+josschavezf1
+</td>
+<td style="text-align:left;">
+Empezamos el cuarto día de #CDSB2020 💪 <span class="citation">@fellgernon</span> nos muestra cómo importar datos de scRNAseq y cuál es su estructura 👀 <a href="https://t.co/aKdLZvuume" class="uri">https://t.co/aKdLZvuume</a>
+</td>
+<td style="text-align:right;">
+0.9951058
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+<p>Ready for day #2. Building workflows with <span class="citation">@rstudio</span> and #Bioconductor. Yesterday was lit !! Buckle up everyone for another day of #DataScience</p>
+<p>#CDSB2020</p>
+<span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@Alabasti</span> <a href="https://t.co/xUlIPQt6Vy" class="uri">https://t.co/xUlIPQt6Vy</a>
+</td>
+<td style="text-align:right;">
+0.9930835
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<span class="citation">@LucyStats</span> <span class="citation">@sherrirose</span> <span class="citation">@stephaniehicks</span> Oh, I will haha =) Once #BioC2020 #JSM2020 and #CDSB2020 are over :P
+</td>
+<td style="text-align:right;">
+0.9862810
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 Trying Virtual Photo / Video CDSB 2020 Day 3: Good practices for setting up and maintaining workspaces &amp;amp; ScRNA-seq data processing overview. <span class="citation">@josschavezf1</span> <span class="citation">@fellgernon</span> <span class="citation">@CDSBMexico</span> <a href="https://t.co/CnXf3fzucm" class="uri">https://t.co/CnXf3fzucm</a>
+</td>
+<td style="text-align:right;">
+0.9944576
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+luisterrazassal
+</td>
+<td style="text-align:left;">
+Muy buen curso!! Muchas gracias! El próximo en Mazatlán!! #CDSB2020 <span class="citation">@fellgernon</span> <span class="citation">@AleMedinaRivera</span>
+</td>
+<td style="text-align:right;">
+0.9908035
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+Super pumped and ready for #CDSB2020 !! schedule looks great and loaded with amazing data scientists! <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <a href="https://t.co/G1OsriCY5F" class="uri">https://t.co/G1OsriCY5F</a>
+</td>
+<td style="text-align:right;">
+0.9908035
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>Trying to be at two places right now :P #JSM2020 #CDSB2020</p>
+I’m also supposed to prep my <span class="citation">@CDSBMexico</span> course slides 😅 for Wed-Fri <a href="https://t.co/FnAucssRTl" class="uri">https://t.co/FnAucssRTl</a>
+</td>
+<td style="text-align:right;">
+0.9896682
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@ErickCuevasF</span> <span class="citation">@CDSBMexico</span> <span class="citation">@RBioinformatica</span> Wooo!!! =)</p>
+Sin el #CDSB2020 no aparece en <a href="https://t.co/6sDJgDW23T" class="uri">https://t.co/6sDJgDW23T</a> :P
+</td>
+<td style="text-align:right;">
+0.9882131
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ledatorresmx
+</td>
+<td style="text-align:left;">
+Enjoying #CDSB2020
+</td>
+<td style="text-align:right;">
+0.9239461
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> <span class="citation">@AnaBetty2304</span> <span class="citation">@RLadies_Qro</span> <span class="citation">@markrobinsonca</span> <span class="citation">@yalbi_ibm</span> <span class="citation">@RespiraINER</span> <span class="citation">@lcgunam</span> <span class="citation">@ccg_unam</span> <span class="citation">@rdv_chio</span> <span class="citation">@M2RUseR</span> <span class="citation">@Bioconductor</span> <span class="citation">@LeviWaldron1</span> <span class="citation">@BarjonCar</span> <span class="citation">@EmilianoSotel10</span> <span class="citation">@josschavezf1</span> <span class="citation">@RLadiesCuerna</span> <span class="citation">@VjimenezJacinto</span> <span class="citation">@ibt_unam</span> <span class="citation">@rstudio</span> <span class="citation">@areyesq</span> <span class="citation">@wolfgangkhuber</span> <span class="citation">@rafalab</span> <span class="citation">@Novartis</span> Leonardo Collado Torres <span class="citation">@fellgernon</span> is a co-founder &amp;amp; CDSB member + the 2nd main #CDSB2020 instructor</p>
+<p>He is a BioC vet, part of the <span class="citation">@Bioconductor</span> Community Advisory Board, has 3 #BioC2020 presentations tomorrow: 🚕, poster, BoF on CDSB</p>
+<p><a href="https://t.co/KBHzPrWXZ0" class="uri">https://t.co/KBHzPrWXZ0</a></p>
+#BioC2020 #rstats <a href="https://t.co/HQWffxbylX" class="uri">https://t.co/HQWffxbylX</a>
+</td>
+<td style="text-align:right;">
+0.9980582
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> <span class="citation">@AnaBetty2304</span> <span class="citation">@RLadies_Qro</span> <span class="citation">@markrobinsonca</span> <span class="citation">@yalbi_ibm</span> <span class="citation">@RespiraINER</span> <span class="citation">@lcgunam</span> <span class="citation">@ccg_unam</span> Rocío Domínguez Vidaña <span class="citation">@rdv_chio</span> is a Cancer Bioinformatician &amp;amp; Data Scientist who started her career at <span class="citation">@lcgunam</span></p>
+<p><a href="https://t.co/xLVf6aFupq" class="uri">https://t.co/xLVf6aFupq</a></p>
+<p>Rocio will be a student at #CDSB2020 next week</p>
+#BioC2020 #rstats <a href="https://t.co/4kEQ5KVnwH" class="uri">https://t.co/4kEQ5KVnwH</a>
+</td>
+<td style="text-align:right;">
+0.9970217
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> Next <span class="citation">@AnaBetty2304</span> who co-founded <span class="citation">@RLadies_Qro</span> after #CDSB2018 &amp;amp; will be a teaching assitant for #CDSB2020 Ana Betty is a BioC veteran having attended &amp;amp; presented at #BioC2019 her work on #PulmonDB that is now published</p>
+<p><a href="https://t.co/0M8I0KHbpb" class="uri">https://t.co/0M8I0KHbpb</a></p>
+<p><a href="https://t.co/ta7lfC23U6" class="uri">https://t.co/ta7lfC23U6</a></p>
+#BioC2020 <a href="https://t.co/VGdi2kgA4m" class="uri">https://t.co/VGdi2kgA4m</a>
+</td>
+<td style="text-align:right;">
+0.9965274
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> <span class="citation">@AnaBetty2304</span> <span class="citation">@RLadies_Qro</span> <span class="citation">@markrobinsonca</span> <span class="citation">@yalbi_ibm</span> <span class="citation">@RespiraINER</span> <span class="citation">@lcgunam</span> <span class="citation">@ccg_unam</span> <span class="citation">@rdv_chio</span> <span class="citation">@M2RUseR</span> <span class="citation">@Bioconductor</span> <span class="citation">@LeviWaldron1</span> <span class="citation">@BarjonCar</span> <span class="citation">@EmilianoSotel10</span> Our 3rd <span class="citation">@Bioconductor</span> new developer is Joselyn Chavez <span class="citation">@josschavezf1</span> &amp;amp; #regutools maintainer</p>
+<p>Co-founded <span class="citation">@RLadiesCuerna</span> after #CDSB2018 &amp;amp; 19, won scholarships for #BioC2019 #rstudioconf 2020, is #CDSB2020 main instructor &amp;amp; board member🤩</p>
+<p><a href="https://t.co/ae7y9oyb78" class="uri">https://t.co/ae7y9oyb78</a></p>
+#BioC2020 #rstats <a href="https://t.co/U4PALb1kag" class="uri">https://t.co/U4PALb1kag</a>
+</td>
+<td style="text-align:right;">
+0.6313161
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDSBMexico
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@RConsortium</span> <span class="citation">@RBioinformatica</span> <span class="citation">@nnb_unam</span> <span class="citation">@ErickCuevasF</span> <span class="citation">@UNAM_MX</span> <span class="citation">@Aleponcem</span> <span class="citation">@TeresaOM</span> <span class="citation">@AnaBetty2304</span> <span class="citation">@RLadies_Qro</span> <span class="citation">@markrobinsonca</span> <span class="citation">@yalbi_ibm</span> <span class="citation">@RespiraINER</span> <span class="citation">@lcgunam</span> <span class="citation">@ccg_unam</span> <span class="citation">@rdv_chio</span> Marcel Ramos <span class="citation">@M2RUseR</span> recently joined <span class="citation">@CDSBMexico</span> after volunteering to teach part of #CDSB2020 coming up soon</p>
+<p>Marcel is part of the <span class="citation">@Bioconductor</span> core team, works with <span class="citation">@LeviWaldron1</span> &amp;amp; co in many key 📦 including #MultiAssayExperiment</p>
+<p><a href="https://t.co/pDfVbIjFi4" class="uri">https://t.co/pDfVbIjFi4</a></p>
+#BioC2020 #rstats <a href="https://t.co/fpmzF9NFQJ" class="uri">https://t.co/fpmzF9NFQJ</a>
+</td>
+<td style="text-align:right;">
+0.5029132
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PardoBree
+</td>
+<td style="text-align:left;">
+<p>Day 2 of #CDSB2020 workshop from the comfort of my couch.</p>
+We just finished the ‘Using Git and GitHub’ session imparted by <span class="citation">@AleMedinaRivera</span>. ‘Writing and documenting functions’ session is about to start. Ready to keep learning!
+</td>
+<td style="text-align:right;">
+0.9948019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+josschavezf1
+</td>
+<td style="text-align:left;">
+Ahora en #CDSB2020 <span class="citation">@fellgernon</span> nos habla sobre Control de Calidad ✅ Un punto súper importante para no tener fancy 💩 data 🙅‍♀️❌🙅‍♂️ <a href="https://t.co/mgIqPiJXu2" class="uri">https://t.co/mgIqPiJXu2</a>
+</td>
+<td style="text-align:right;">
+0.9948019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 <span class="citation">@CDSBMexico</span> “Alone, we can do so little; together, we can do so much” – Helen Keller. Day 2 of workshop: -Version control with github.<br />
+-Writing and documentation of functions. -Debugging <span class="citation">@AleMedinaRivera</span> <span class="citation">@M2RUseR</span>
+</td>
+<td style="text-align:right;">
+0.9930835
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 Last Day!! 5 days of much learning, today ends with the topic: Clustering and detection of differentially expressed genes scRNAseq <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <a href="https://t.co/hwtFdd80Th" class="uri">https://t.co/hwtFdd80Th</a>
+</td>
+<td style="text-align:right;">
+0.9924605
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gracieladg96
+</td>
+<td style="text-align:left;">
+#cdsb2020 excellent workshop. See you at the next one <a href="https://t.co/2g1rpQOxgN" class="uri">https://t.co/2g1rpQOxgN</a>
+</td>
+<td style="text-align:right;">
+0.9730063
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+FDiaz_20
+</td>
+<td style="text-align:left;">
+<p>¡Ya comezó!</p>
+<p>Super emocionada de este taller para analizar datos de #SingleCell por la <span class="citation">@CDSBMexico</span>.</p>
+<p>Con lenguaje inclusivo y con la mira a intergar a más latinoamericanos a ser parte de la comudad de <span class="citation">@Bioconductor</span>.</p>
+#CDSB2020 <a href="https://t.co/yp32PASCXI" class="uri">https://t.co/yp32PASCXI</a>
+</td>
+<td style="text-align:right;">
+0.9972196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AlejandroTrelle
+</td>
+<td style="text-align:left;">
+<span class="citation">@drhuerta</span> También la industria farmaceutica está pensando como obstruir al #CDSB2020 queda invitado al Forum #medicosporlavida a y le devuelvo su jabón <a href="https://t.co/QUueUniXP1" class="uri">https://t.co/QUueUniXP1</a>
+</td>
+<td style="text-align:right;">
+0.9958363
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+My RStudio cowsay::say(by = “yoda”) “Do you want to know the difference between a teacher and an apprentice? The teacher has failed more times than the beginner has tried” Yoda #rstats #CDSB2020 <a href="https://t.co/4FB8kNfWqL" class="uri">https://t.co/4FB8kNfWqL</a>
+</td>
+<td style="text-align:right;">
+0.9936115
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>I know #BioC2020 isn’t over yet + next week is #CDSB2020, but I just got my #JSM2020 welcome 📦 for the virtual conf world 🌎😎</p>
+<p>Join me at 8/4 1 pm EST for a talk about <span class="citation">@CDSBMexico</span>: #LatinxInSTEM at #rstats &amp;amp; <span class="citation">@Bioconductor</span>🇲🇽💪🏽</p>
+<p><a href="https://t.co/IM6pERkXDw" class="uri">https://t.co/IM6pERkXDw</a></p>
+#GonnaDieFromConfOverload <a href="https://t.co/vPRKC0TCpc" class="uri">https://t.co/vPRKC0TCpc</a>
+</td>
+<td style="text-align:right;">
+0.9948019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ErickCuevasF
+</td>
+<td style="text-align:left;">
+#CDSB2020 A collaborative, supportive and strong community. Thanks for your effort and dedication, you undoubtedly inspire many of us Mexican students to see beyond our limits. <span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@TeresaOM</span> <span class="citation">@areyesq</span> <span class="citation">@AleMedinaRivera</span> <span class="citation">@M2RUseR</span> <a href="https://t.co/8KA5GupA76" class="uri">https://t.co/8KA5GupA76</a>
+</td>
+<td style="text-align:right;">
+0.9940646
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoelSM27
+</td>
+<td style="text-align:left;">
+<p>And the community keeps getting bigger, people from all over the country (and LA) taking part in #CDSB2020 !!!</p>
+<p>#DataScience</p>
+<span class="citation">@CDSBMexico</span> <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@AleMedinaRivera</span> <span class="citation">@areyesq</span> <span class="citation">@TeresaOM</span>. <a href="https://t.co/Op6uQkPRCA" class="uri">https://t.co/Op6uQkPRCA</a>
+</td>
+<td style="text-align:right;">
+0.9908035
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="software" class="section level1">
+<h1><span class="header-section-number">9</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1>Session info</h1>
+<pre><code>## R version 4.0.0 (2020-04-24)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 18.04.4 LTS
+## 
+## Matrix products: default
+## BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.4.2            here_0.1            kableExtra_1.1.0   
+##  [4] knitr_1.29          magick_2.4.0        webshot_0.5.2      
+##  [7] viridis_0.5.1       viridisLite_0.3.0   wordcloud_2.6      
+## [10] RColorBrewer_1.1-2  ggraph_2.0.3        ggrepel_0.8.2      
+## [13] ggplot2_3.3.2       topicmodels_0.2-11  tidytext_0.2.5     
+## [16] igraph_1.2.5        stringr_1.4.0       purrr_0.3.4        
+## [19] forcats_0.5.0       lubridate_1.7.9     tidyr_1.1.0        
+## [22] dplyr_1.0.0         rtweet_0.7.0        BiocManager_1.30.10
+## 
+## loaded via a namespace (and not attached):
+##  [1] progress_1.2.2     httr_1.4.2         rprojroot_1.3-2    SnowballC_0.7.0   
+##  [5] tools_4.0.0        backports_1.1.8    utf8_1.1.4         R6_2.4.1          
+##  [9] colorspace_1.4-1   withr_2.2.0        tidyselect_1.1.0   gridExtra_2.3     
+## [13] prettyunits_1.1.1  processx_3.4.3     curl_4.3           compiler_4.0.0    
+## [17] cli_2.0.2          rvest_0.3.6        xml2_1.3.2         NLP_0.2-0         
+## [21] labeling_0.3       slam_0.1-47        scales_1.1.1       tm_0.7-7          
+## [25] readr_1.3.1        callr_3.4.3        askpass_1.1        digest_0.6.25     
+## [29] rmarkdown_2.3      pkgconfig_2.0.3    htmltools_0.5.0    highr_0.8         
+## [33] rlang_0.4.7        rstudioapi_0.11    farver_2.0.3       generics_0.0.2    
+## [37] jsonlite_1.7.0     tokenizers_0.2.1   magrittr_1.5       modeltools_0.2-23 
+## [41] Matrix_1.2-18      Rcpp_1.0.5         munsell_0.5.0      fansi_0.4.1       
+## [45] lifecycle_0.2.0    stringi_1.4.6      yaml_2.2.1         MASS_7.3-51.6     
+## [49] plyr_1.8.6         grid_4.0.0         parallel_4.0.0     crayon_1.3.4      
+## [53] lattice_0.20-41    graphlayouts_0.7.0 hms_0.5.3          ps_1.3.3          
+## [57] pillar_1.4.6       reshape2_1.4.4     stats4_4.0.0       glue_1.4.1        
+## [61] evaluate_0.14      vctrs_0.3.2        tweenr_1.0.1       gtable_0.3.0      
+## [65] openssl_1.4.2      polyclip_1.10-0    assertthat_0.2.1   xfun_0.16         
+## [69] ggforce_0.3.2      tidygraph_1.2.0    janeaustenr_0.1.5  tibble_3.0.3      
+## [73] ellipsis_0.3.1</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
