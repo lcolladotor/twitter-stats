@@ -9,6 +9,8 @@ navbar:
       menu:
         - text: "CDSB2020"
           href: CDSB2020.html
+        - text: "RLadiesMX2020"
+          href: RLadiesMX2020.html
   right:
     - text: "About"
       href: about.html
