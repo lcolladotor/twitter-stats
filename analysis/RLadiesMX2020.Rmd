@@ -117,8 +117,12 @@ tweets <- tweets %>%
 # Introduction
 
 An analysis of tweets from the `r params$hashtag` hashtag for the
-[CDSB 2020 workshop][CDSB2020],
-3-7 August 2020 online (originally planned in Cuernavaca, Morelos, Mexico).
+[RLadiesMX 2020 online event][RLadiesMX2020],
+September 24, 2020.
+
+Este es un análsis de los tweets de la etiqueta `r params$hashtag` para el
+[evento RLadiesMX 2020][RLadiesMX2020],
+del 24 de septiembre del 2020 que se llevó acabo en línea.
 
 ```{r analysis, child = "_analysis.Rmd"}
 # This chunk adds the template analysis
@@ -130,4 +134,4 @@ An analysis of tweets from the `r params$hashtag` hashtag for the
 sessionInfo()
 ```
 
-[CDSB2020]: https://comunidadbioinfo.github.io/post/cdsb2020-building-workflows-with-rstudio-and-scrnaseq-with-bioconductor/#.XyWzfShKguU "CDSB 2020"
+[RLadiesMX2020]: https://rladiesmx.netlify.app/talk/2020-08-23-encuentro2020/ "Primer Encuentro Anual R-Ladies México"
