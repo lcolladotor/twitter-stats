@@ -8,7 +8,7 @@ output:
 Analysis of the following Twitter hashtags:
 
 * [CDSB2020](CDSB2020.html) - CDSB 2020 workshop (2020-08-03 - 2020-08-07)
-* [RLadies2020](RLadies2020.html) - Primer Encuentro Anual R-Ladies México (2020-09-24)
+* [RLadiesMX2020](RLadiesMX2020.html) - Primer Encuentro Anual R-Ladies México (2020-09-24)
 
 ```{r list, echo = FALSE, results = "asis", eval = FALSE}
 cat(clamour::clamour_list())
